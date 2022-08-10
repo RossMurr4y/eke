@@ -1,5 +1,7 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/RossMurr4y/eke/main/src/schema/draft-0/schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": false,
     "title": "EkeSettings",
     "type": "object",
     "properties": {
@@ -15,8 +17,28 @@
         "description": {
             "type": "string",
             "description": "An (optional) descriptor for these settings.",
+        },
+        "runs": {
+            "type": "object",
+            "description": "Run definition dictionary.",
+            "patternProperties": {
+                "^[A-Za-z_][A-Za-z0-9_-]*$": {
+                    "$ref": "#/definitions/DiscoDiffusion_5_6"
+                }
+            }
         }
-
+    },
+    "definitions": {
+        "DiscoDiffusion_5_6": {
+            "additionalProperties": true,
+            "description": "Disco Diffusion v5.6 Settings",
+            "properties": {
+                "text_prompts": {
+                    "type": "object",
+                    "additionalProperties": true
+                }
+            }
+        }
     },
     "required": ["name"]
 }
