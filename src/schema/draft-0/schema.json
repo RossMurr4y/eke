@@ -16,7 +16,7 @@
         },
         "description": {
             "type": "string",
-            "description": "An (optional) descriptor for these settings.",
+            "description": "An (optional) descriptor for these settings."
         },
         "runs": {
             "type": "object",
