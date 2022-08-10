@@ -19,23 +19,18 @@ def parse_args():
 # retrieves .json
 
 
-def get_batch_settings(voc_args):
-    batch_settings_path = voc_args.settings_path
+def get_batch_settings(args):
+    batch_settings_path = args.settings_path
     f = open(batch_settings_path, 'r')
     settings = json.load(f)
     return settings
 
 
-def run_settings_to_args(batch_settings):
-    args = []
-    # destructure batch_settings
-    text_prompts, image_prompts = itemgetter(
-        'text_prompts',
-        'image_prompts'
-    )
-    args.append('--text_prompts ' + text_prompts)
-    args.append('--image_prompts ' + image_prompts)
-    return args
+def run_as_args(run):
+    desc = "blah"
+    parser = argparse.ArgumentParser(desc)
+    parser.add_argument('--prompt', type=str)
+    
 
 
 def process_batch(batch_settings):
@@ -45,7 +40,7 @@ def process_batch(batch_settings):
         # print(json.dumps(runs[run_id]))
         run_value = runs[run_id]
         run_args = json.loads(run_value)
-        runpy.run_path(f, init_globals=run_args)
+        runpy.run_path(f, init_globals=run_args, )
 
 
 # main
