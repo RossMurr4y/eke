@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "EkeSettings",
+    "type": "object",
+    "properties": {
+        "rootSettings": {
+            "type": "boolean",
+            "description": "Is this a root-level settings file?",
+            "default": false
+        },
+        "name": {
+            "type": "string",
+            "description": "A unique name to identify these settings."
+        },
+        "description": {
+            "type": "string",
+            "description": "An (optional) descriptor for these settings.",
+        }
+
+    },
+    "required": ["name"]
+}
